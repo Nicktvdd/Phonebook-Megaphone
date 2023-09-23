@@ -13,7 +13,7 @@ OBJS		:= $(OBJ_DIR)/$(SRC:.cpp=.0)
 #----Flags----
 CFLAGS		:= -Wall -Wextra -Werror
 
-DEP			:= $(OBJ:.o=.d)
+DEP			:= $(OBJ_DIR)/$(SRC:.cpp=.d)
 
 #----Rules----
 
@@ -21,20 +21,23 @@ DEP			:= $(OBJ:.o=.d)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	g++ $(CFLAGS) $^ -o $(NAME)
+	@g++ $(CFLAGS) $^ -o $(NAME)
 
 $(OBJS): $(SRC)
-	mkdir -p $(OBJ_DIR)
-	g++ $(CFLAGS) -MMD -c $< -o $@
+	@mkdir -p $(OBJ_DIR)
+	@echo "Compiling $<"
+	@g++ $(CFLAGS) -MMD -c $< -o $@
 
 -include $(DEP)
 
 clean:
-	rm -rf $(OBJ_DIR)
+	@echo "Cleaning $(OBJ_DIR)"
+	@rm -rf $(OBJ_DIR)
 
 fclean: clean
-	rm -rf $(OBJ_DIR)
-	rm -f $(NAME)
+	@echo "Cleaning $(NAME)"
+	@rm -rf $(OBJ_DIR)
+	@rm -f $(NAME)
 
 re: fclean all
 
