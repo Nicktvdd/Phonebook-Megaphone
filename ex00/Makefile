@@ -37,3 +37,19 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+#----Tests----
+test: $(NAME)
+	@/bin/echo
+	@/bin/echo "Expected  : SHHHHH... I THINK THE STUDENTS ARE ASLEEP..."
+	@/bin/echo -n "Megaphone : "
+	@./$(NAME) "shhhhh... I think the students are asleep..."
+	@/bin/echo
+	@/bin/echo "Expected  : DAMNIT ! SORRY STUDENTS, I THOUGHT THIS THING WAS OFF."
+	@/bin/echo -n "Megaphone : "
+	@./$(NAME) Damnit " ! " "Sorry students, I thought this thing was off."
+	@/bin/echo
+	@/bin/echo "Expected  : * LOUD AND UNBEARABLE FEEDBACK NOISE *"
+	@/bin/echo -n "Megaphone : "
+	@./$(NAME)
+	@/bin/echo

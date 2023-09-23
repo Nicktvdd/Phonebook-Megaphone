@@ -6,7 +6,7 @@
 /*   By: nvan-den <nvan-den@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 15:14:58 by nvan-den          #+#    #+#             */
-/*   Updated: 2023/09/22 15:14:59 by nvan-den         ###   ########.fr       */
+/*   Updated: 2023/09/23 12:50:36 by nvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,5 @@ int main(int argc, char **argv)
             std::cout << std::endl;
     }
     else
-        std::cout << "* LOUD AND UBEARABLE FEEDBACK NOISE *" << std::endl;
+        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 }
