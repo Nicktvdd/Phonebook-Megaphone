@@ -1,3 +1,4 @@
+#----General----
 NAME		:= megaphone
 
 #----Sources----
@@ -7,22 +8,24 @@ VPATH		:= src:inc
 
 #----Objects----
 OBJ_DIR		:= obj
-OBJS		:= $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
+OBJS		:= $(OBJ_DIR)/$(SRC:.cpp=.0)
 
 #----Flags----
 CFLAGS		:= -Wall -Wextra -Werror
 
 DEP			:= $(OBJ:.o=.d)
 
+#----Rules----
+
 ####   -fsanitize=thread
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	clang++ $(CFLAGS) $(OBJS) -o $(NAME)
+	g++ $(CFLAGS) $^ -o $(NAME)
 
-$(OBJ_DIR)/%.o: %.c
+$(OBJS): $(SRC)
 	mkdir -p $(OBJ_DIR)
-	clang++ $(CFLAGS) -c $< -o $@
+	g++ $(CFLAGS) -MMD -c $< -o $@
 
 -include $(DEP)
 
