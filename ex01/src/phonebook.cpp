@@ -6,7 +6,7 @@
 /*   By: nvan-den <nvan-den@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 08:45:41 by nvan-den          #+#    #+#             */
-/*   Updated: 2023/09/26 11:37:27 by nvan-den         ###   ########.fr       */
+/*   Updated: 2023/09/26 11:46:53 by nvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,11 @@ void PhoneBook::choose_contact()
 
     std::cout << "Enter the index of the contact you wish to see" << std::endl;
     std::getline(std::cin, input);
-    
+    if (input == "EXIT")
+	{
+		std::cout << "SELF DESTRUCT" << std::endl;
+		return ;
+	}
     if (input.length() != 1 || input[0] < '0' || input[0] >= '0' + size)
     {
         std::cout << "Invalid input. Please enter a number between 0 and " << size - 1 << "." << std::endl;
