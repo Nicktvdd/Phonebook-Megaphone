@@ -6,20 +6,20 @@
 /*   By: nvan-den <nvan-den@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 10:24:28 by nvan-den          #+#    #+#             */
-/*   Updated: 2023/09/26 11:13:17 by nvan-den         ###   ########.fr       */
+/*   Updated: 2023/09/26 12:41:16 by nvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/phonebook.hpp"
+#include "../inc/Phonebook.hpp"
 
 int	main(void)
 {
-	PhoneBook 	pb;
+	Phonebook 	pb;
 	Contact		contact;
 	std::string	input;
 	
 	pb.set_size(0);
-	std::cout << "Hi, welcome to your PhoneBook, dickhead!" << std::endl;
+	std::cout << "Hi, welcome to your Phonebook, dickhead!" << std::endl;
 	while (1)
 	{
 		std::cout << std::endl << "What would you like to do? (ADD, SEARCH or EXIT)" << std::endl;

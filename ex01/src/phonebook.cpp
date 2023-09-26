@@ -6,14 +6,14 @@
 /*   By: nvan-den <nvan-den@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 08:45:41 by nvan-den          #+#    #+#             */
-/*   Updated: 2023/09/26 11:46:53 by nvan-den         ###   ########.fr       */
+/*   Updated: 2023/09/26 12:42:45 by nvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/phonebook.hpp"
-#include "../inc/contact.hpp"
+#include "../inc/Phonebook.hpp"
+#include "../inc/Contact.hpp"
 
-void	PhoneBook::display_contacts()
+void	Phonebook::display_contacts()
 {
 	if (size == 0)
 	{
@@ -42,10 +42,10 @@ void	PhoneBook::display_contacts()
 		std::cout << std::endl;
 		
 	}
-	PhoneBook::choose_contact();
+	Phonebook::choose_contact();
 }
 
-void PhoneBook::choose_contact()
+void Phonebook::choose_contact()
 {
     std::string input;
     int index = 0;
@@ -60,7 +60,7 @@ void PhoneBook::choose_contact()
     if (input.length() != 1 || input[0] < '0' || input[0] >= '0' + size)
     {
         std::cout << "Invalid input. Please enter a number between 0 and " << size - 1 << "." << std::endl;
-        PhoneBook::choose_contact();
+        Phonebook::choose_contact();
         return;
     }
     index = input[0] - '0';
@@ -72,7 +72,7 @@ void PhoneBook::choose_contact()
     std::cout << "Darkest secret    : " << get_contact(index).getSecret() << std::endl;
 }
 
-void PhoneBook::rotate_contacts(PhoneBook *phonebook)
+void Phonebook::rotate_contacts(Phonebook *phonebook)
 {
 	int i = 1;
 	
@@ -83,22 +83,22 @@ void PhoneBook::rotate_contacts(PhoneBook *phonebook)
 	}
 }
 
-int	PhoneBook::get_size(void)
+int	Phonebook::get_size(void)
 {
 	return(this->size);
 }
 
-void PhoneBook::set_size(int n)
+void Phonebook::set_size(int n)
 {
 	this->size = n;
 }
 
-void PhoneBook::set_contact(int index, Contact contact)
+void Phonebook::set_contact(int index, Contact contact)
 {
 	this->contacts[index] = contact.add_contact();
 }
 
-Contact PhoneBook::get_contact(int index)
+Contact Phonebook::get_contact(int index)
 {
 	return (this->contacts[index]);
 }
