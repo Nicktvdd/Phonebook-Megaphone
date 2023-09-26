@@ -16,8 +16,6 @@ CFLAGS		:= -Wall -Wextra -Werror -pedantic -std=c++98
 DEP			:= $(OBJ_DIR)/$(SRC:.cpp=.d)
 
 #----Rules----
-
-####   -fsanitize=thread
 all: $(NAME)
 
 $(NAME): $(OBJS)
@@ -30,10 +28,6 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 
 -include $(DEP)
 
-$(OBJ_DIR)/contact.o: inc/contact.hpp
-$(OBJ_DIR)/phonebook.o: inc/phonebook.hpp inc/contact.hpp
-$(OBJ_DIR)/main.o: inc/phonebook.hpp
-
 clean:
 	@echo "Cleaning $(OBJ_DIR)"
 	@rm -rf $(OBJ_DIR)
@@ -44,6 +38,3 @@ fclean: clean
 	@rm -f $(NAME)
 
 re: fclean all
-
-#----Tests----
-test: $(NAME)
