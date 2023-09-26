@@ -6,7 +6,7 @@
 /*   By: nvan-den <nvan-den@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 08:45:41 by nvan-den          #+#    #+#             */
-/*   Updated: 2023/09/26 11:13:20 by nvan-den         ###   ########.fr       */
+/*   Updated: 2023/09/26 11:37:27 by nvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,63 +15,33 @@
 
 void	PhoneBook::display_contacts()
 {
-	int j = 0;
-
 	if (size == 0)
 	{
-		std::cout << "Please add something first!" << std::endl;
+		std::cout << "Contact list empty" << std::endl;
 		return ;
 	}
-    std::cout << std::setfill(' ') << std::setw(10) << "index";
-    std::cout << std::setw(10) << "first name";
-    std::cout << std::setw(10) << "last name";
-    std::cout << std::setw(10) << "nickname" << std::endl;
+    std::cout << std::setfill(' ') << std::setw(10) << "index" << '|';
+    std::cout << std::setw(10) << "first name" << '|';
+    std::cout << std::setw(10) << "last name"<< '|';
+    std::cout << std::setw(10) << "nickname" << '|' << std::endl;
     for (int i = 0; i < size; i++)
 	{
-		std::cout << "         " << i << "|";
+		std::cout << std::setw(10) << i << "|";
 		if (get_contact(i).getFirstname().length() > 9)
-			std::cout << get_contact(i).getFirstname().substr(0, 9) << ".";
+			std::cout << std::setw(9) << get_contact(i).getFirstname().substr(0, 9) << "." << '|';
 		else
-		{
-			j = get_contact(i).getFirstname().length();
-			j = 10 - j;
-			while (j)
-			{
-				std::cout << " ";
-				j--;
-			}
-			std::cout << get_contact(i).getFirstname();
-		}
-		std::cout << "|";
+			std::cout << std::setw(10) << get_contact(i).getFirstname().substr(0, 10) << '|';
 		if (get_contact(i).getLastname().length() > 9)
-			std::cout << get_contact(i).getLastname().substr(0, 9) << ".";
+			std::cout << std::setw(9) << get_contact(i).getLastname().substr(0, 9) << "." << '|';
 		else
-		{
-			j = get_contact(i).getLastname().length();
-			j = 10 - j;
-			while (j)
-			{
-				std::cout << " ";
-				j--;
-			}
-			std::cout << get_contact(i).getLastname();
-		}
-		std::cout << "|";
+			std::cout << std::setw(10) << get_contact(i).getLastname().substr(0, 10) << '|';
 		if (get_contact(i).getNickname().length() > 9)
-			std::cout << get_contact(i).getNickname().substr(0, 9) << ".";
+			std::cout << std::setw(9) << get_contact(i).getNickname().substr(0, 9) << "." << '|';
 		else
-		{
-			j = get_contact(i).getNickname().length();
-			j = 10 - j;
-			while (j)
-			{
-				std::cout << " ";
-				j--;
-			}
-			std::cout << get_contact(i).getNickname() << std::endl;
-		}
+			std::cout << std::setw(10) << get_contact(i).getNickname().substr(0, 10) << '|';
+		std::cout << std::endl;
+		
 	}
-	std::cout << std::endl;
 	PhoneBook::choose_contact();
 }
 
