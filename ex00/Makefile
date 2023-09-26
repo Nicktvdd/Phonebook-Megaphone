@@ -8,7 +8,7 @@ VPATH		:= src:inc
 
 #----Objects----
 OBJ_DIR		:= obj
-OBJS		:= $(OBJ_DIR)/$(SRC:.cpp=.0)
+OBJS		:= $(OBJ_DIR)/$(SRC:.cpp=.o)
 
 #----Flags----
 CFLAGS		:= -Wall -Wextra -Werror -pedantic -std=c++98

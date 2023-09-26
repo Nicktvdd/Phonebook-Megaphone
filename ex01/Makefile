@@ -2,13 +2,13 @@
 NAME		:= phonebook
 
 #----Sources----
-SRC_DIR		:= ./
-SRC			:= phonebook.cpp contact.cpp
+SRC_DIR		:= src
+SRC			:= phonebook.cpp contact.cpp main.cpp
 VPATH		:= src:inc
 
 #----Objects----
 OBJ_DIR		:= obj
-OBJS		:= $(OBJ_DIR)/$(SRC:.cpp=.0)
+OBJS		:= $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 
 #----Flags----
 CFLAGS		:= -Wall -Wextra -Werror -pedantic -std=c++98
@@ -23,12 +23,16 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	@g++ $(CFLAGS) $^ -o $(NAME)
 
-$(OBJS): $(SRC)
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	@mkdir -p $(OBJ_DIR)
 	@echo "Compiling $<"
 	@g++ $(CFLAGS) -MMD -c $< -o $@
 
 -include $(DEP)
+
+$(OBJ_DIR)/contact.o: inc/contact.hpp
+$(OBJ_DIR)/phonebook.o: inc/phonebook.hpp inc/contact.hpp
+$(OBJ_DIR)/main.o: inc/phonebook.hpp
 
 clean:
 	@echo "Cleaning $(OBJ_DIR)"

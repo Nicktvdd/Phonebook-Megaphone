@@ -6,11 +6,11 @@
 /*   By: nvan-den <nvan-den@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/26 09:43:31 by nvan-den          #+#    #+#             */
-/*   Updated: 2023/09/26 10:15:37 by nvan-den         ###   ########.fr       */
+/*   Updated: 2023/09/26 11:13:23 by nvan-den         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <contact.hpp>
+#include "../inc/contact.hpp"
 
 Contact Contact::add_contact(void)
 {
