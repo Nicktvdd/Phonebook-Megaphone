@@ -11,7 +11,7 @@ OBJ_DIR		:= obj
 OBJS		:= $(OBJ_DIR)/$(SRC:.cpp=.0)
 
 #----Flags----
-CFLAGS		:= -Wall -Wextra -Werror
+CFLAGS		:= -Wall -Wextra -Werror -pedantic -std=c++98
 
 DEP			:= $(OBJ_DIR)/$(SRC:.cpp=.d)
 

@@ -3,7 +3,7 @@ NAME		:= phonebook
 
 #----Sources----
 SRC_DIR		:= ./
-SRC			:= phonebook.cpp
+SRC			:= phonebook.cpp contact.cpp
 VPATH		:= src:inc
 
 #----Objects----
@@ -11,7 +11,7 @@ OBJ_DIR		:= obj
 OBJS		:= $(OBJ_DIR)/$(SRC:.cpp=.0)
 
 #----Flags----
-CFLAGS		:= -Wall -Wextra -Werror
+CFLAGS		:= -Wall -Wextra -Werror -pedantic -std=c++98
 
 DEP			:= $(OBJ_DIR)/$(SRC:.cpp=.d)
 
@@ -43,4 +43,3 @@ re: fclean all
 
 #----Tests----
 test: $(NAME)
-	
